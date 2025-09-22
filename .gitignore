@@ -20,3 +20,5 @@ src/main/.DS_Store
 .DS_Store
 /.idea
 /.mvn
+build.log
+build2.log
