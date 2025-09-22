@@ -22,3 +22,6 @@ src/main/.DS_Store
 /.mvn
 build.log
 build2.log
+cs1133.iml
+my-database.db.bak
+my-database.db.bak2
