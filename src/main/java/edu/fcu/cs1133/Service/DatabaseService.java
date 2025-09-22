@@ -13,13 +13,18 @@ public class DatabaseService {
   @Value("${spring.datasource.url}")
   private String datasourceUrl;
 
-  @Value("${spring.datasource.username}")
+  // Provide empty default so placeholder resolution won't fail when properties are absent
+  @Value("${spring.datasource.username:}")
   private String username;
 
-  @Value("${spring.datasource.password}")
+  @Value("${spring.datasource.password:}")
   private String password;
 
   public Connection connect() throws SQLException {
+    // If username not provided (e.g. SQLite), use the URL-only getConnection overload
+    if (username == null || username.isEmpty()) {
+      return DriverManager.getConnection(datasourceUrl);
+    }
     return DriverManager.getConnection(datasourceUrl, username, password);
   }
 }
