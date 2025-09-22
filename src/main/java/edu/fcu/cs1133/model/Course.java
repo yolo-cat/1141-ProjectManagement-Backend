@@ -22,6 +22,10 @@ public class Course {
     @Column(name = "course_description")
     private String courseDescription;
 
+    @Lob
+    @Column(name="course_content", columnDefinition="TEXT")
+    private String courseContent;
+
     @Column(name = "credits")
     private int credits;
 
